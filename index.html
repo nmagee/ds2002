@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CS4740 Cloud Computing - UVA Fall 2020</title>
+
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/cs4740/" style="color:black;text-decoration:none;">CS4740 Cloud Computing</a></h1>
+        <p>Neal Magee, Ph.D. <a href="mailto:nem2p@virginia.edu"><img src="images/email.png" alt="email" /></a><br />Solution Architect, Research Computing<br />University of Virginia, Fall 2020</p>
+        <div style="min-height:2rem;"></div>
+        <ul>
+          <li><a href="https://nmagee.github.io/cs4740/schedule/">Review the<strong>Schedule</strong></a></li>
+          <li><a href="https://l.uvarc.io/youtube-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      
+<section>
+
+<h2><a id="description" class="anchor" href="#description" name="description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Course Description</h2>
+<p>This course investigates the architectural foundations of the various cloud platforms and examines both current cloud computing platforms and modern cloud research. Student assignments utilize the major cloud platforms. Prerequisite: CS 2150 with grade of C- or higher.</p>
+<p>Cloud Computing has become an everyday term, but its meaning often remains unclear. For the purposes of this course, "cloud computing" makes up a specific way of creating, managing, and interacting with remote computing infrastructure and services, so-called IaaS (Infrastructure as a Service).</p>
+<p>We will discuss the technical, business, and practical reasons that cloud computing emerged, and the ways it has evolved in the last 15 years. Attention will be paid to the ways cloud computing - by empowering users to create and use infrastructure on demand and at scale - places additional risks and requirements upon the user, such as cost, security, and operational viability.</p>
+
+<ul>
+  <li><a href="#participation" style="text-decoration:none;color:black;">Participation</a></li>
+  <li><a href="#audience" style="text-decoration:none;color:black;">Audience</a></li>
+  <li><a href="#grading" style="text-decoration:none;color:black;">Grading</a></li>
+  <li><a href="#tools" style="text-decoration:none;color:black;">Tools</a></li>
+  <li><a href="#policies" style="text-decoration:none;color:black;">Policies</a></li>
+  <li><a href="#other" style="text-decoration:none;color:black;">Other Details</a></li>
+  <li><a href="#contact" style="text-decoration:none;color:black;">Support or Contact</a></li>
+</ul>
+
+
+<h2><a id="participation" class="anchor" href="#participation" name="participation"  aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Participation</h2>
+<div style="padding:2rem 2rem 0rem 2rem;border:solid 1px #ccc;background-color:#dff0d8;margin-bottom:2rem;box-shadow: 4px 4px 5px #ccc;">
+  <h3 style="font-size:120%;">Fall 2020 - This course will be held entirely online</h3>
+  <p>This course is being offered <strong>ONLINE SYNCHRONOUSLY</strong> in a flipped mode. Most lectures will be video streams to be watched or re-watched whenever the student chooses.
+  Class discussion, more specifics of the content, and Q&A will be held in <strong>REAL-TIME each Thursday from 2:00-3:00pm EDT</strong>. Students will be expected to attend these discussions having viewed the lectures and completed all reading and external video assignments beforehand.</p>
+  <p>Office hours will be held online <b>Tuesdays, 2:00-4:00pm EDT</b>. Visit the <b>#office-hours</b> channel in Discord.</p>
+
+  <p><a href="schedule/" style="font-decoration:none;color:black;"><button style="padding:0.4rem 0.8rem 0.4rem 0.8rem;background-color:white;border:solid 1px #ccc;">View the Schedule</button></a></p>
+</div>
+
+<h2><a id="audience" class="anchor" href="#audience" name="audience" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Audience</h2>
+<p>This course will emphasize hands-on experience in the creation, management, and consumption of cloud-based services. For the purposes of getting started I will assume that you fit roughly into at least one of three categories as you approach the subject:</p>
+<ol>
+  <li>Developer</li>
+  <li>Sysadmin / Systems Engineer</li>
+  <li>Data Scientist / Researcher</li>
+</ol>
+<p>Students will learn how to create cloud resources according to best practices, with an emphasis upon creating reusable snippets of infrastructure-as-code.</p>
+
+<h2><a id="grading" class="anchor" href="#grading" name="grading" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grading</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Weight</th>
+      <th>Notes / Due</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://l.uvarc.io/1fkedp81g" target="_new">Student Survey</a></td>
+      <td>1%</td>
+      <td>First week of class</td>
+    </tr>
+    <tr>
+      <td>Lectures, readings and other material</td>
+      <td></td>
+      <td>Weekly before class discussion</td>
+    </tr>
+    <tr>
+      <td><a href="labs/">Labs</a></td>
+      <td></td>
+      <td>Weekly before class discussion</td>
+    </tr>
+    <tr>
+      <td>Discussion</td>
+      <td></td>
+      <td>Every THURSDAY 2:00-3:00pm EDT</td>
+    </tr>
+    <tr>
+      <td>Programming Assignments</td>
+      <td>50%</td>
+      <td>5 separate projects</td>
+    </tr>
+    <tr>
+      <td>Mid-Term Exam - <a href="https://l.uvarc.io/mid-term-review">Review Sheet</a></td>
+      <td>24%</td>
+      <td>Due October 9</td>
+    </tr>
+    <tr>
+      <td>Final Exam</td>
+      <td>25%</td>
+      <td>Due December 9</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><b>Student Survey</b> - a simple questionnaire for me to ascertain baseline skills for the class and students' familiarity with a variety of tools and concepts.
+  <li><b>Lectures / Reading / Viewing</b> - Posted beforehand. Though not a graded portion of the course, lectures, readings and supporting videos have been carefully selected to introduce and explain important concepts to you. Should you not digest these you will likely not perform well in the course. Lectures and all links will remain posted for the entire semester.
+  <li><b>Labs</b> - Posted beforehand. Labs are an important way for you to interact with an actual public cloud provider. In most cases this will be Amazon Web Services. Labs will either be hosted in Qwiklabs (and incur no charges in your own AWS account) or are designed to cost very little if performed in your account (a couple of dollars at most).
+  <li><b>Discussions</b> - Class discussions are the only synchronous element of this course, and will be held weekly on Thursdays at 2pm Eastern Time. Please join the discord channel and bring your questions! Discussion may be accompanied by live Twitch streams.
+  <li><b>Programming Assignments</b> - Programming assignments are graded mini-projects that implement your understanding of course material. PAs will be posted one week before due. There is no time limit on PAs but they must be completed alone, without support of other students or outsiders. Given the full week allowed to work on these assignments, late work will not be accepted.
+  <li><b>Mid-term / Final Exams</b> - Exams will be given to track your understanding and retention of course material. They will be posted in Collab one week before due, but you will only be allowed 2 hours to complete once you begin.
+</ul>
+
+<h2>
+<a id="tools" name="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h2>
+<p>Students in this course will be expected to use the following pieces of software on a weekly basis:</p>
+<ul>
+  <li><strong><a href="">YouTube</a></strong> - This will be our primary platform for recorded lectures and the video portion of real-time discussions.</li>
+  <li><strong><a href="https://discord.com/new/download">Discord</a></strong> - Discord will serve as our hub for discussions, Q&A, and distributing extra material specific to topics or assignments. Download the software, create a Discord account, and <strong><a href="https://l.uvarc.io/discord">join the class server</a></strong>.</li>
+  <li><strong><a href="https://github.com/">Git/GitHub</a></strong> - Students are expected to know how to version control their material using Git. Some programming assignments will require submission via commits pushed to GitHub. Need a <a href="https://katacoda.com/courses/git" target="_new">tutorial</a>? If you do not have a GitHub account, create one now. Also, sign up for the <b><a href="https://education.github.com/students" target="_new">GitHub Education Student Developer Pack</a></b></li>
+  <li><strong><a href="https://nmagee.github.io/cs4740/aws/">Amazon Web Services</a></strong> - All students will use AWS accounts and credits for this course. Please click the link to learn more about the AWS Educate program and your options for creating an account. We will also be using the <strong>AWS <a href="https://aws.amazon.com/cli/">CLI</a> and <a href="https://aws.amazon.com/tools/">SDKs</a></strong> to interact with the AWS cloud programmatically. This will include the CLI interface and at least one SDK, preferably the <code>boto3</code> library for Python.</li>
+  <li><strong><a href="https://l.uvarc.io/gcp">Google Cloud Platform</a></strong> (optional) - Students also have the opportunity to work with GCP to broaden their hands-on experience. Google has donated $50 credit to each student for work in their environment.
+  <li><strong><a href="https://www.docker.com/">Docker</a></strong> - You will need the Docker CE or Docker Desktop application for some portions of this course. All students should also create an account on <a href="https://hub.docker.com/">Docker Hub</a>. Students may also have practice assignments using the <strong><a href="https://training.play-with-docker.com/" target="_new">Play With Docker</a></strong> sandbox.
+  <li><strong><a href="https://amazon.qwiklabs.com/">Qwiklabs</a></strong> - Provides hands-on labs in AWS services. Many of these are free and include detailed steps to complete practice projects of varying complexity.
+  <li><strong><a href="https://l.uvarc.io/terms">Terms</a></strong> - An etherpad list of terms and concepts touched on. This page will change over the course of the semester and be a good resource for exam review. Students can edit this page!</li>
+</ul>
+
+<h3>Student Action Items</h3>
+<div class="action-items" style="margin-left:4rem;">
+<p>
+  <input type="checkbox" id="aws_acc" name="aws_acc" value="y">  Create AWS account <br />
+  <input type="checkbox" id="aws_edu" name="aws_edu" value="y">  Join AWS Educate / get credits <br />
+  <input type="checkbox" id="aws_cli" name="aws_cli" value="y">  Install <code>aws-cli</code> tools <br />
+  <input type="checkbox" id="git_acc" name="git_acc" value="y">  Create free GitHub account <br />
+  <input type="checkbox" id="doc_sfw" name="doc_sfw" value="y">  Install <code>git</code> locally <br />
+  <input type="checkbox" id="dis_acc" name="dis_acc" value="y">  Create free Discord account / join server <br />
+  <input type="checkbox" id="doc_acc" name="doc_acc" value="y">  Create free Docker account <br />
+  <input type="checkbox" id="doc_sfw" name="doc_sfw" value="y">  Install <code>docker</code> locally <br />
+  <input type="checkbox" id="qwi_acc" name="qwi_acc" value="y">  Create free Qwiklabs account <br />
+</p>
+</div>
+
+<hr size=1 />
+<h2><a id="policies" href="#policies" class="anchor" name="policies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Policies</h2>
+
+<h3><a id="honor" href="#honor" class="anchor" name="honor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Honor Policy</h3>
+<p>The course will be conducted according to the UVA honor system. Programming assignments and exams are to be completed by the individual (no group collaborations). You will sign an honor pledge for all assignments, quizzes, and exams; more importantly, I expect you to adhere to the intent of the pledge. Cooperative efforts at understanding the material and technologies of the course are encouraged.</p>
+<p>All suspected violations will be forwarded to the Honor Committee, and you may, at my discretion, receive an immediate zero on that assignment regardless of any action taken by the Honor Committee.</p>
+<p>If you believe you may have committed an Honor Offense, you may wish to file a Conscientious Retraction by calling the Honor Offices at (434)924-7602. For your retraction to be considered valid, it must, among other things, be filed with the Honor Committee before you are aware that the act in question has come under suspicion by anyone. More information can be found at <a href="http://honor.virginia.edu/" target=_new">http://honor.virginia.edu</a>. Your Honor representatives can be found at: <a href="http://honor.virginia.edu/representatives" target="_new">http://honor.virginia.edu/representatives</a>.</p>
+
+<h3><a id="sdac" href="#scac" class="anchor" name="scad" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disabilities or Learning Needs</h3>
+<p>It is my goal to create a learning experience that is as accessible as possible. If you anticipate any issues related to the format, materials, or requirements of this course, please meet with me outside of class so we can explore potential options. Students with disabilities may also wish to work with the Student Disability Access Center to discuss a range of options to removing barriers in this course, including official accommodations. Please visit their website for information on this process and to apply for services online: <a href="https://sdac.studenthealth.virginia.edu/" target="_new"><b>sdac.studenthealth.virginia.edu</b></a>. If you have already been approved for accommodations through SDAC, please send me your accommodation letter and meet with me so we can develop an implementation plan together.</p>
+<p>Lectures and other learning material will be made available throughout the semester, and all assignments and exams will be granted ample time for complmetion. Should you require accommodations through SDAC for extra time, please contact the instructor.</p>
+
+<h3><a id="discrimination" href="#discrimination" class="anchor" name="discrimination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discrimination and power-based violence</h3>
+<p>The University of Virginia is dedicated to providing a safe and equitable learning environment for all students. To that end, it is vital that you know two values that I and the University hold as critically important:</p>
+  <ol>
+    <li>Power-based personal violence will not be tolerated.
+    <li>Everyone has a responsibility to do their part to maintain a safe community on Grounds.
+  </ol>
+<p>If you or someone you know has been affected by power-based personal violence, more information can be found on the UVA Sexual Violence website that describes reporting options and resources available - www.virginia.edu/sexualviolence.</p>
+<p>As your professor and as a person, know that I care about you and your well-being and stand ready to provide support and resources as I can. As a faculty member, I am a responsible employee, which means that I am required by University policy and federal law to report what you tell me to the University's Title IX Coordinator. The Title IX Coordinator's job is to ensure that the reporting student receives the resources and support that they need, while also reviewing the information presented to determine whether further action is necessary to ensure survivor safety and the safety of the University community. If you wish to report something that you have seen, you can do so at the <b>Just Report It</b> portal (<a href="http://www.virginia.edu/sexualviolence" target="_new">http://justreportit.virginia.edu/</a>). <b>The worst possible situation would be for you or your friend to remain silent when there are so many here willing and able to help.</b></p>
+
+<h3><a id="religion" href="#religion" name="religion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Religious Accommodations</h3>
+<p>It is the University's long-standing policy and practice to reasonably accommodate students so that they do not experience an adverse academic consequence when sincerely held religious beliefs or observances conflict with academic requirements.</p>
+<p>Students who wish to request academic accommodation for a religious observance should submit their request in writing directly to me as far in advance as possible. Students who have questions or concerns about academic accommodations for religious observance or religious beliefs may contact the University’s Office for Equal Opportunity and Civil Rights (EOCR) at <a href="mailto:UVAEOCR@virginia.edu">UVAEOCR@virginia.edu</a> or 434-924-3200.</p>
+
+<h3><a id="preservation" href="#preservation" name="preservation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preservation of classroom discussions</h3>
+<p>I will preserve weekly class discussions in Discord for the duration of the semester. Because these discussions include fellow students, you and they may be personally identifiable in these discussion logs. These logs  may only be used for the purpose of individual or group study with other students enrolled in this class during this semester. You may not distribute them in whole or in part through any other platform or to any persons outside of this class, nor may you make your own copies of class discussions unless written permission has been obtained from the Instructor and all participants in the class have been informed. For additional details, please see Provost Policy 008 which is expected to be updated for the Fall 2020 semester.</p>
+
+<hr size=1 />
+
+<h2><a id="other" class="anchor" href="#other" name="other" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Details</h2>
+<ul>
+  <li>Students are expected to complete every reading and watch every lecture. Failure to do so will undoubtedly leave gaps in your understanding of the subject, and the specifics required for assignments and exams.</li>
+  <li>You should never wait until the last minute to work on any aspect of this class. Computers and software can crash, and websites can have temporary outages. Keep close to the class schedule for readings, lectures, and assignments.</li>
+</ul>
+
+<h2><a id="contact" class="anchor" href="#contact" name="contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h2>
+<p>If you have a question about any aspect of this course - a particular topic, method, concept, etc. - please contact the TAs or me via Discord or email. It is often the case that you're not the only one having trouble understanding it!</p>
+
+</section>
+
+  <footer>
+    <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+    <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+  </footer>
+</div>
+<script src="https://nmagee.github.io/cs4740/javascripts/scale.fix.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CS4740 Cloud Computing - EC2 Bootstrapping Lab</title>
+
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      li {margin-bottom:1rem;}
+      .btn {padding:8px;margin-right:8px;background-color:#555;color:white;border-radius: 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/cs4740/" style="color:black;text-decoration:none;">CS4740 Cloud Computing</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia, Fall 2020</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/cs4740/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/youtube-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Lab: Bootstrap an EC2 Instance</h2>
+
+<p>Bootstrapping is the process of bringing a resource onlne pre-loaded with OS updates, packages, and any software required to run
+without human intervention or further configuration. You can bootstrap a "barebones" instance of a particular OS distribution, or
+further bootstrap an already-customized AMI. <b>Bootstrapping only occurs upon instance creation.</b>
+</p>
+
+<p>This lab introduces the basics of updating your EC2 instance upon creation.</p> 
+
+<p><b>BEFORE</b> you start this lab, be sure to watch the <a href="https://www.youtube.com/watch?v=R98ViHlHOGY" target="_new">How To: Create an EC2 Instance</a> video if you are not familiar with the basics of creating an instance in EC2.</p>
+
+<iframe width="784" height="441" src="https://www.youtube.com/embed/R98ViHlHOGY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br /><br />
+
+<ol>
+  <li>Establish what you need to bootstrap upon instance creation. In this example you will be working with an Amazon Linux instance, which
+    is based on the RHEL/CentOS distribution. This means you will be using the <code>yum</code> package manager as a start, and loading other resources as necessary.
+    <ul>
+      <li>Use <code>yum</code> to update the OS.
+      <li>Use <code>yum</code> to install specific packages.
+      <li>Use <code>yum</code> to install tools that install other supporting libraries or resources.
+    </ul>
+  </li>
+  <li>For OS updates to the Amazon Linux image, a bootstrapping script might look something like this:<br /><br />
+    <pre>
+#!/bin/bash
+
+yum update -y</pre>
+
+  A few notes:
+  <ul>
+    <li>First, notice the <code>#!/bin/bash</code> shebang at the start. The instance needs some interpreter or shell to parse the following commands, so this is required.</li>
+    <li>This bash script will be executed with full sudo privileges, so you do not need a <code>sudo</code> or <code>sudo su</code> command within the script to escalate permissions.</li>
+    <li>Take note that the <code>-y</code> flag has been included, since bootstrapping scripts are non-interactive. That is, you will not be present to answer "Y" or "N" when asked if you want to install new packages.</li>
+    <li>To "inject" your bootstrap script into an instance upon launch, find the User data field in the "Configure Instance" pane of the launch wizard, at the bottom of the page under "Additional Details."</li>
+  </ul>
+
+  <img src="../images/ec2-user-data.png" alt="EC2 User Data field" />
+
+  <li>To install specific packages, a bootstrapping script might look something like this:<br /><br />
+    <pre>
+#!/bin/bash
+
+/usr/bin/yum update -y
+/bin/amazon-linux-extras install -y epel
+/usr/bin/yum install -y git python3 python3-dev python3-pip nfs-utils
+/bin/pip3 install boto3 pandas requests</pre>
+A few notes:
+<ul>
+  <li>The first command updates the yum cache, since it comes empty in a fresh installation.</li>
+  <li>The second command is specific to Amazon Linux, and installs the EPEL library of "extra" packages for the CentOS/RedHat/Amazon Linux distribution.</li>
+  <li>Not all binaries are automatically in the <code>$PATH</code> of a bootstrap script. Therefore it is often useful to define the full path for every command. (This is the same for cron jobs.)</li>
+  <li>From there, yum is used to install specific packages non-interactively.</li>
+</ul>
+
+  <li>Alernatively, most Linux distributions (Amazon Linux, Debian, Fedora, Gentoo, Alpine, RHEL, Cent, Ubuntu, Core) come cloud-enabled with the <code>cloud-init</code> tool. This allows bootstrapping to be
+  much less script-driven and more declarative, resembling management tools like Ansible. AWS, Google and Azure all support <code>cloud-init</code>. Here is an example of a <code>cloud-init</code> script. <br /><br />
+<pre>
+#cloud-config
+repo_update: true
+repo_upgrade: all
+
+packages:
+ - httpd
+ - mariadb-server
+
+runcmd:
+ - [ sh, -c, "amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2" ]
+ - systemctl start httpd
+ - sudo systemctl enable httpd
+ - [ sh, -c, "usermod -a -G apache ec2-user" ]
+ - [ sh, -c, "chown -R ec2-user:apache /var/www" ]
+ - chmod 2775 /var/www
+ - [ find, /var/www, -type, d, -exec, chmod, 2775, {}, \; ]
+ - [ find, /var/www, -type, f, -exec, chmod, 0664, {}, \; ]
+ - [ sh, -c, 'echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php' ]</pre>
+
+  <li>Another strategy for bootstrapping is to publish a bash or cloud-init script to a remote location, such as S3 or GitHub. This allows for centralized management of the script and a relatively "dumb" bootstrapping script to retrieve the remote file and execute it.
+    In the example below, a <a href="https://gist.github.com/nmagee/acb6249ba451c03fd921f0d6d0f442d5" target="_new">pre-published GitHub gist</a> is available in <a href="https://gist.githubusercontent.com/nmagee/acb6249ba451c03fd921f0d6d0f442d5/raw/5816fb54963826f953da166bd623a9ba0cd9fa76/bootstrap.sh" target="_new">raw form</a>.
+    <br /><br />
+    <pre>
+#!/bin/bash
+      
+/bin/curl -O https://gist.githubusercontent.com/nmagee/acb6249ba451c03fd921f0d6d0f442d5/raw/5816fb54963826f953da166bd623a9ba0cd9fa76/bootstrap.sh
+/bin/bash bootstrap.sh</pre>
+
+A few notes:
+<ul>
+  <li><code>curl</code> is already available on the instance and does not need to be installed.</li>
+  <li>Using the <code>-O</code> flag for <code>curl</code> means the script is downloaded as named.</li>
+  <li>At this point the script could be <code>chmod</code> to 755 and then executed <code>./bootstrap.sh</code> or executed against <code>bash</code></li>
+  <li>A security consideration is that a GitHub gist must either be public or hidden, though hidden does not mean secure. A more secure option would be to fetch the script from a private Amazon S3 bucket, and grant the EC2 instance role explicit READ privileges for the bucket.</li>
+</ul>
+
+  <li><b>Debugging:</b> If you are familiar with Docker (or after the Microservices portion of this course) you can use basic OS distribution containers (Ubuntu, Amazon Linux, CentOS, Debian, etc.) as a way to test bootstrapping scripts, determine software availability and path, and debug your bootstrapping process.
+  <li>To bootstrap programmatically, you can echo in user data, or pass it as a file: <br /><br />
+<pre>
+aws ec2 run-instances --image-id ami-abcd1234 --count 1 --instance-type m3.medium \
+  --key-name my-key-pair --subnet-id subnet-abcd1234 --security-group-ids sg-abcd1234 \
+  --user-data file://my_script.txt
+</pre>
+  <li><p><b>Your assignment in this lab is to bootstrap an EC2 instance yourself. Select 5 of the following packages or tools to install.</b> To evaluate succcess,
+    simply shell into the instance after the instance has been created (give the instance enough time to complete your setup) and verify. For more advanced
+    bootstrapping of a service or daemon, open up the relevant port in your security group and test remotely. For instance, the <code>nginx</code> web
+    server is a fairly simple daemon to bootstrap, and you can then use <code>http://your-instance-ip-address/</code> to verify.</p>
+
+    <p>Refer to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html" target="_new">Running commands on your Linux instance at Launch</a> for more detail.</p>
+  <div>
+    <div style="width:49%;float:left;">
+      <ul>
+        <li><code>python3</code></li>
+        <li><code>boto3</code></li>
+        <li><code>git</code></li>
+        <li><code>nginx</code></li>
+        <li><code>apache2</code></li>
+        <li><code>redis</code></li>
+      </ul>
+    </div>
+    <div style="width:49%;float:right;">
+      <ul>
+        <li><code>aws-cli</code></li>
+        <li><code>jq</code></li>
+        <li><code>mysql-server</code> (advanced)</li>
+        <li><code>docker</code> (advanced)</li>
+      </ul>
+    </div>
+  </div>
+  </li>
+  
+  <br clear="all" /><br />
+  <li>After you have shelled into your instance to verify all expected packages got installed, <b>you should terminate your instance</b> to clean up resources and stop incurring all costs. To stop your instance, select it from the list of instances, and from the ACTIONS menu select the INSTANCE STATE submenu, and then click on TERMINATE INSTANCE.
+    <img src="../images/terminate-instance.png" alt="Terminate EC2 instance" style="margin:1rem;" />
+  </li>
+  <li>Final notes: <br /><br />
+    <ul>
+      <li>At some point boostrapping becomes too large, too long, and too unwieldy. When you get to that point, consider creating your own AMI based upon a customized instance that has the tools and software you need.</li>
+      <li>Bootstrapping should be seen as prepping a "bare" instance for production.</li>
+      <li>In environments where instances are being destroyed frequently, bootstrapping can take care of basic OS/package updates, and a change management tool (such as Ansible) can be used for updates, if needed.</li>
+      <li>Some deployments / shops never update instances after creation. Therefore, bootstrapping is the last point for refreshing and upgrading.</li>
+      <li>It is possible, though not common, for a bootstrapping action to hang. If this occurs, shell into the instance and try to debug. Or terminate the instance and try again.</li>
+    </ul>
+  </li>
+</ol>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/cs4740/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

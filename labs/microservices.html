@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>CS4740 Cloud Computing - Microservices / Docker 101</title>
+
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/cs4740/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      li {margin-bottom:1rem;}
+      .btn {padding:8px;margin-right:8px;background-color:#555;color:white;border-radius: 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/cs4740/" style="color:black;text-decoration:none;">CS4740 Cloud Computing</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia, Fall 2020</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/cs4740/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/youtube-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Lab: Microservices / Docker 101</h2>
+
+<p>Containerized microservices are portable, efficient, and disposable, and contain code and any dependencies in a single package. Containerized microservices typically run a single process, rather than an entire stack within the same computing environment. This allows portions of your application to be easily replaced or scaled as needed.</p>
+<p>Docker is the most popular, and one of the easiest, ways to work with containers. This lab introduces the basics of creating, using, and managing Docker containers.</p> 
+<p>This lab is unique in that you will be running Docker containers as a way of presenting and working through the lab itself. Setup instructions are below.</p>
+<br /><br />
+
+<ol>
+  <li>Open <b>Play with Docker</b> using the button below.<br /><br />
+    <p><a href="https://labs.play-with-docker.com/" target="_new"><button class="btn">Open Play With Docker</button></a></p>
+  </li>
+  <li>Click <b>Login</b> (and log into Docker) or <b>Start</b>.
+  <li>You have now initiated a free 4-hour session. Click "ADD A NEW INSTANCE". Wait a few seconds for a terminal to appear. If your cursor does not appear automatically, press your RETURN button a time or two. Your browser window should look something like this:<br /><br />
+    <img src="../images/docker-play-session.png" alt="Docker Play Session"/>
+  </li>
+  <li>To initiate the Docker 101 training modules, run this command in the terminal:<br /><br />
+<pre>
+docker run -dp 80:80 docker/getting-started:pwd
+</pre>
+  </li>
+  <li>This command launches the getting-started container, a portable training application.
+  <li>To access the training modules, click on the hyperlinked "80" that appears near the top of the page:<br /><br />
+    <img src="../images/docker-play-port-80.png" alt="Docker Play - Port 80" />
+  </li>
+  <li>The Docker 101 training pages should now appear in a new browser tab:<br /><br />
+    <img src="../images/docker-101.png" alt="Docker 101" />
+  <li>Carefully follow the instructions for the ten modules of the training.
+  <li>When you have finished the training, click the red <b>CLOSE SESSSION</b> button. You may repeat this lab as often as you like.
+</ol>
+<div style="margin-left:40px;margin:20px;padding:10px;background-color:#d4edda;border:solid 1px #c3e6cb">
+Hungry for more Docker labs? Try <a href="https://training.play-with-docker.com/" target="_new" style="font-weight:bold;">Docker Classroom</a>.
+</div>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/cs4740/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

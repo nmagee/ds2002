@@ -30,11 +30,6 @@
 
 <h2><a id="description" class="anchor" href="#description" name="description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Course Description</h2>
 
-<div style="padding:2rem 2rem 0rem 2rem;border:solid 1px #ccc;background-color:#dff0d8;margin-bottom:2rem;">
-  <h3>D R A F T</h3>
-  <p>This is currently a draft syllabus. Everything may be subject to change.</p>
-</div>
-
 <p>By definition, "data science" must make meaning out of ever-growing pools of data. But the researcher quickly discovers that the hand examination of any data, while useful for granular analysis, is never adequate for large samples. To produce data science at scale, researchers must make effective use of workflows, pipelines, and processes to ingest, parse, and transform data with tools and automation.</p>
 <p>This course will center on exposing students to contemporary pipelines for data analysis through a series of steadily escalating use cases. The course will begin with simple local database construction and evolve to cloud-based infrastructure such as AWS or Google Cloud. This progression will include learning a variety of systems for data collection, orchestration, transformation, consumption, and others as appropriate.</p>
 
@@ -42,6 +37,7 @@
   <li><a href="#participation" style="text-decoration:none;color:black;">Participation</a></li>
   <li><a href="#audience" style="text-decoration:none;color:black;">Audience</a></li>
   <li><a href="#grading" style="text-decoration:none;color:black;">Grading</a></li>
+  <li><a href="#office-hours" style="text-decoration:none;color:black;">Office Hours</a></li>  
   <li><a href="#tools" style="text-decoration:none;color:black;">Tools</a></li>
   <li><a href="#policies" style="text-decoration:none;color:black;">Policies</a></li>
   <li><a href="#other" style="text-decoration:none;color:black;">Other Details</a></li>
@@ -94,24 +90,14 @@
       <td>Weekly before class discussion</td>
     </tr>
     <tr>
-      <td>Discussion</td>
+      <td>Discussions</td>
       <td></td>
       <td>Every THURSDAY 11:00am-12:00pm EDT</td>
     </tr>
     <tr>
       <td>Programming Assignments</td>
       <td></td>
-      <td>5 separate projects</td>
-    </tr>
-    <tr>
-      <td>Mid-Term Exam</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Final Exam</td>
-      <td></td>
-      <td></td>
+      <td>2 separate projects</td>
     </tr>
   </tbody>
 </table>
@@ -120,14 +106,15 @@
   <li><b>Student Survey</b> - a simple questionnaire for me to ascertain baseline skills for the class and students' familiarity with a variety of tools and concepts.
   <li><b>Lectures / Reading / Viewing</b> - Posted beforehand. Though not a graded portion of the course, lectures, readings and supporting videos have been carefully selected to introduce and explain important concepts to you. Should you not digest these you will likely not perform well in the course. Lectures and all links will remain posted for the entire semester.
   <li><b>Labs</b> - Posted beforehand. Labs are an important way for you to interact with an actual public cloud provider. In most cases this will be Amazon Web Services. Labs will either be hosted in Qwiklabs (and incur no charges in your own AWS account) or are designed to cost very little if performed in your account (a couple of dollars at most).
-  <li><b>Discussions</b> - Class discussions are the only synchronous element of this course, and will be held weekly on Thursdays at 11am Eastern Time. Please join the discord channel and bring your questions! Discussion may be accompanied by live Twitch streams.
+  <li><b>Discussions</b> - Class discussions are the only synchronous element of this course, and will be held weekly on Thursdays at 11am Eastern Time. Please join the discord channel and bring your questions! Discussion may be accompanied by live Zoom.
   <li><b>Programming Assignments</b> - Programming assignments are graded mini-projects that implement your understanding of course material. PAs will be posted one week before due. There is no time limit on PAs but they must be completed alone, without support of other students or outsiders. Given the full week allowed to work on these assignments, late work will not be accepted.
-  <li><b>Mid-term / Final Exams</b> - Exams will be given to track your understanding and retention of course material. They will be posted in Collab one week before due, but you will only be allowed 2 hours to complete once you begin.
 </ul>
 
 <h3>Grading Scale</h3>
 
-<table>
+<div style="width:100%;">
+<div style="float:left;">
+<table style="margin-left:4rem;width:200px;">
   <thead>
     <tr>
       <th>Grade</th>
@@ -159,6 +146,17 @@
       <td>B-</td>
       <td>80-83</td>
     </tr>
+  </tbody>
+</table>
+</div><div style="margin-left:4rem;padding-left:4rem;">
+<table style="padding-left:4rem;width:200px;">
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th>Point Range</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>C+</td>
       <td>77-79</td>
@@ -185,10 +183,15 @@
     </tr>
     <tr>
       <td>F</td>
-      <td>=<59< /td>
+      <td>=<59</td>
     </tr>
   </tbody>
 </table>
+</div></div>
+
+<h2>
+  <a id="office-hours" name="office-hours" class="anchor" href="#office-hours" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Office Hours</h2>
+  <p>Given this course is entirely online and most interactions will occur within the course Discord server, no formal office hours will be scheduled. Post your questions to the <code>#questions</code> channel, or message the instructor directly. We will do our best to reply to all questions within a few hours. </p>
 
 <h2>
 <a id="tools" name="tools" class="anchor" href="#tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tools</h2>
@@ -206,12 +209,13 @@
 <h3>Student Action Items</h3>
 <div class="action-items" style="margin-left:4rem;">
 <p>
-  <input type="checkbox" id="aws_acc" name="aws_acc" value="y"> Create AWS account <br />
+  <input type="checkbox" id="aws_acc" name="aws_acc" value="y"> Create an AWS account <br />
   <input type="checkbox" id="aws_edu" name="aws_edu" value="y"> Join AWS Educate / request credits <br />
-  <input type="checkbox" id="git_acc" name="git_acc" value="y"> Create free GitHub account <br />
+  <input type="checkbox" id="gcp_acc" name="gcp_acc" value="y"> Create a GCP account <br />
+  <input type="checkbox" id="git_acc" name="git_acc" value="y"> Create a free GitHub account <br />
   <input type="checkbox" id="doc_sfw" name="doc_sfw" value="y"> Install <code>git</code> locally <br />
-  <input type="checkbox" id="dis_acc" name="dis_acc" value="y"> Create free Discord account / join server <br />
-  <input type="checkbox" id="qwi_acc" name="qwi_acc" value="y"> Create free Qwiklabs account / requets credits <br />
+  <input type="checkbox" id="dis_acc" name="dis_acc" value="y"> Create a free Discord account / join server <br />
+  <input type="checkbox" id="qwi_acc" name="qwi_acc" value="y"> Create a free Qwiklabs account / requets credits <br />
 </p>
 </div>
 

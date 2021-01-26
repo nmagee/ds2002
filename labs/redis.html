@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DS3002 Data Science Systems - Redis KV Store</title>
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <style>
+      li {margin-bottom:1rem;}
+      .btn {padding:8px;margin-right:8px;background-color:#555;color:white;border-radius: 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/ds3002/" style="color:black;text-decoration:none;">S3002 Data Science Systems</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia, Spring 2021</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/youtube-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Lab: Redis In Memory Key-Value Store</h2>
+
+<img align="right" alt="Redis" src="../images/redis.png" style="float:right;width:40%;" />
+<p>Redis is an open source, in-memory data structure store, used as a database, cache, and message broker. Redis provides data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams.
+</p>
+<p>This lab will expose you to the basic operations of Redis by running and interacting with it locally as a Docker container.</p>
+
+<div style="margin:2rem;padding:1rem;border:solid 1px #ccc;background-color:#eee;">
+  <h3>Concept: Keys & Values</h3>
+  <p>A key–value database, or key–value store, is a data storage paradigm designed for storing, retrieving, and managing associative arrays, and a data structure more commonly known today as a dictionary or hash table. Dictionaries contain a collection of objects, or records, which in turn have many different fields within them, each containing data. These records are stored and retrieved using a key that uniquely identifies the record, and is used to find the data within the database.</p>
+    <ul>
+      <li><b>Keys</b> - Are often numbers, GUIDs, hashes, or other unique-yet-inexpensive identifiers. Keys tend to be meaningless to the human observer.</li>
+      <li><b>Values</b> - Are unstructured containers for meaningful data. This could be a string, an integer/decimal, a timedate, binary, as well as XML, JSON, or other encoded data.</li>
+    </ul>
+    <img alt="KV Store" src="../images/keyvalue.png" style="margin-left:4rem;" />
+</div>
+
+<h3>Setting Up</h3>
+<ol style="">
+  <li>Run the Redis container locally in detached mode, exposed to your local port 6379:
+    <pre><code>docker run -d -p 6379:6379 redis</code></pre>
+  </li>
+  <li>Download the appropriate Redis client for your workstation:
+    <ul>
+      <li>MacOSX
+        <pre><code>brew install Redis</code></pre>
+      </li>
+      <li>Linux
+        <pre><code>apt install redis | yum install redis</code></pre>
+      </li>
+      <li>Windows - Download and install Redis msi package from <a href="https://github.com/MicrosoftArchive/redis/releases" target="_new">MicrosoftArchive</a> page. The package installs <code>redis-cli.exe</code>.
+      </li>
+    </ul></li>
+  <li>Use the <code>redis-cli</code> to connect to your local container:
+    <pre><code>redis-cli</code></pre>
+  </li>
+</ol>
+
+<h3>Use Redis</h3>
+<ol style="">
+  <p>When connected to Redis you should see a prompt, something like this:
+    <pre><code>127.0.0.1:6379> _</code></pre>
+  <p>Issue the following commands. The first line is the command; the second line shows output</p>
+  </p>
+  <li>List all keys:
+    <pre><code>keys *</code></pre>
+  </li>
+  <li>Set a key:
+    <pre><code>set city charlottesville</code></pre>
+  </li>
+  <li>Set another key (repeat as you like)
+    <pre><code>set zip 22903</code></pre>
+  </li>
+  <li>List all keys:
+    <pre><code>keys *</code></pre>
+  </li>
+  <li>Fetch a specific key:
+    <pre><code>get city</code></pre>
+  </li>
+  <li>Delete a key:
+    <pre><code>del zip</code></pre>
+  </li>
+  <li>List all keys:
+    <pre><code>keys *</code></pre>
+  </li>
+  <li>Set an expiring key. This key "i-will-expire" with a value of "12345" will expire after 30 seconds:
+    <pre><code>set i-will-expire 12345 EX 30</code></pre>
+  </li>
+  <li>Get your expiring key and verify the value. Repeat after 30 seconds have passed:
+    <pre><code>get i-will-expire</code></pre>
+  </li>
+  <li>List all keys and note the previous key has disappeared:
+    <pre><code>keys *</code></pre>
+  </li>
+  <li>Create an integer counter:
+    <pre><code>set counter 1</code></pre>
+  </li>
+  <li>Bump the counter:
+    <pre><code>incr counter</code></pre>
+  </li>
+  <li>Repeat this bump another 4x:
+    <pre><code>incr counter
+incr counter
+incr counter
+incr counter</code></pre>
+  </li>
+  <li>Get the value of the counter (should now be 5):
+    <pre><code>get counter</code></pre>
+  </li>
+  <li>Bump the counter by 13:
+    <pre><code>incrby counter 13</code></pre>
+  </li>
+  <li>Get the value of the counter (should now be 18):
+    <pre><code>get counter</code></pre>
+  </li>
+  <li>Set multiple keys at once:
+    <pre><code>mset key1 mickey key2 mouse key3 "bugs bunny" key4 coyote</code></pre>
+  </li>
+  <li>Get multiple keys at once:
+    <pre><code>mget key1 key2 key3 key4 city</code></pre>
+  </li>
+</ol>
+
+<h3>Language-specific SDKs</h3>
+<p>Redis libraries are available for most languages, including Python, R, Julia, Java, Go, etc.</p>
+<p>A simple connection using Python3 can <code>set</code> and <code>get</code> values like this:</p>
+<pre><code>pip install redis</code></pre>
+
+<pre><code>>>>import redis
+>>> # Set up a connection. This one is overkill but shows some options for connecting to remote hosts:
+>>> r = redis.Redis(host='localhost', port=6379, db=0)
+>>>
+>>> # Set a key-value
+>>> r.set('foo', 'bar')
+True
+>>> # Get a KV pair
+>>> r.get('foo')
+b'bar'
+>>> # Delete a KV pair
+>>> r.delete('foo')
+1
+</code></pre>
+
+<h3>Reference</h3>
+<ul style="">
+  <li><a href="https://redis.io/commands/" target="_new">Redis Command Documentation</a></li>
+  <li><a href="https://redis.io/clients" target="_new">Redis Client SDKs</a></li>
+  <li><a href="../assets/redis-cheatsheet.pdf" target="_new">Redis Cheatsheet (PDF)</a></li>
+</ul>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/ds3002/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

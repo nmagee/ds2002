@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DS3002 Data Science Systems - Lab</title>
+
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      li {margin-bottom:1rem;}
+      .btn {padding:8px;margin-right:8px;background-color:#555;color:white;border-radius: 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/ds3002/" style="color:black;text-decoration:none;">DS3002 Data Science Systems</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/labs/">Full list of <strong>Labs</strong></a></li>
+          <li><a href="https://qwiklabs.com/" target="_new">Hands-on <strong>Qwiklabs</strong></a></li>
+          <li><a href="https://github.com/ds3002/course/blob/main/README.md" target="_new">Course <strong>Container</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Lab: Event-Driven Computing</h2>
+
+<p>Event-driven computing, or serverless computing, is premised upon computing events occuring only when triggered. This
+  eliminates idle compute resources, and removes the need to create and manage infrastructure running 24/7.</p>
+
+<p>This lab introduces the basics of even-driven computing by creating an AWS Lambda function that is triggered upon the 
+  arrival of a new file within an S3 bucket. You will use a predefined template to launch this solution, but will then be
+  able to customize and extend the operations of the Python3 Lambda function.</p>
+
+<h3>Setup</h3>
+
+<ol style="">
+  <li>Sign into your AWS account. Be sure you are in the US East 1 (Virginia) region.</li>
+  <li>Navigate to the S3 service and create a bucket, noting the name of your bucket.</li>
+  <li>Open <a href="https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/function/configure/blueprint?blueprint=s3-get-object-python"><b>this page</b></a> to customize a pre-defined blueprint for your Lambda function. This blueprint is named <code>blueprint s3-get-object-python</code>.</li>
+  <li>In the <b>Basic Information</b> section, give your function a name.</li>
+  <li>For execution role, let AWS create a new one using policy templates. Provide a name for the role it will create. (A single policy template should already be selected beneath that.)</li>
+  <li>In the <b>S3 Trigger</b> section, select the bucket you created above.</li>
+  <li>Leave the "Event Types" as-is.</li>
+  <li>For the "Prefix" field, enter "incoming"</li>
+  <li>For the "Suffix" field, you can either leave it blank or put a data suffix such as .csv, .tsv, .json. Specifying a suffix means your Lambda function will only be triggered when files with that suffix are posted to your bucket.</li>
+  <li>Leave the function code as it appears. Click on "Create Function".</li>
+</ol>
+
+<img src="../images/lambda-view1.png" alt="Lambda console" />
+
+<h3 style="margin-top:2rem;">Edit, Test and Iterate</h3>
+<ol start=11>
+  <li>You should now see an editing console like the above image.</li>
+  <li>Double-click on the function that has been created for you, named <code>lambda_function.py</code>.</li>
+  <li>To orient you a bit, </li>
+  <li></li>
+  <li></li>
+</ol>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/ds3002/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

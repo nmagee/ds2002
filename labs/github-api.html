@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DS3002 Data Science Systems - Lab</title>
+
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
+      li {margin-bottom:1rem;}
+      .btn {padding:8px;margin-right:8px;background-color:#555;color:white;border-radius: 4px;}
+    </style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/ds3002/" style="color:black;text-decoration:none;">DS3002 Data Science Systems</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/labs/">Full list of <strong>Labs</strong></a></li>
+          <li><a href="https://qwiklabs.com/" target="_new">Hands-on <strong>Qwiklabs</strong></a></li>
+          <li><a href="https://github.com/ds3002/course/blob/main/README.md" target="_new">Course <strong>Container</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Lab: Github API</h2>
+
+<p>Consuming APIs is an important part of retrieving specific, managed data sets. The ability to communicate
+with remote APIs using authentication and over a variety of methods and endpoints is a critical skill in the
+data science toolkit.</p>
+
+<p>This lab extends on the hands-on portion of Lecture 04 by asking you to complete two additional tasks:
+<ol>
+  <li>With a Github Gist you have already created, <code>delete</code> the gist programmatically using Python3.</li>
+  <li>Build upon the POST method code distributed with Lecture 04 to create a new Github repository in your account using Python3.</li>
+</ol>
+
+</p>
+
+<h3>Setup</h3>
+
+<ul style="">
+  <li>Follow the steps outlined in <a href="https://github.com/ds3002/course/blob/main/practice/06-api-consume/py-post.py" target="_new"><code>py-post.py</code></a> to set up your Github token and <code>ENV</code> variable. Visit <a href="https://github.com/ds3002/course/blob/main/practice/06-api-consume/py-post.py" target="_new">https://github.com/ds3002/course/blob/main/practice/06-api-consume/py-post.py</a> for details.</li>
+</ul>
+
+<h3 style="margin-top:2rem;">Delete a Gist</h3>
+
+<div style="margin:2rem;">
+  <a href="https://docs.github.com/en/rest/reference/gists" target="_new"><button class="btn btn-success">Gist API Documentation</button></a>
+</div>
+
+<ol>
+  <li>Get the ID of an existing Github gist. This should look something like <code>bb222a9c6366411000485682eacce254</code></li>
+  <li>Refer to the documentation link above for Github gist API calls. Look specifically at documentation around
+    the <a href="https://docs.github.com/en/rest/reference/gists#delete-a-gist" target="_new"><code>DELETE</code></a> method.</li>
+  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), and any additional required HEADERS.</li>
+  <li>Remember to include an authentication header (using your token) given in the <code>py-post.py</code> example.</li>
+  <li>Test and iterate on your code, creating and deleting gists easily.</li>
+  <li>Submit a screenshot of your code to verify completion of this lab.</li>
+</ol>
+
+<h3 style="margin-top:2rem;">Create a Repository</h3>
+
+<div style="margin:2rem;">
+  <a href="https://docs.github.com/en/rest/reference/repos" target="_new"<button class="btn btn-success">Repo API Documentation</button></a>
+</div>
+
+<ol>
+  <li>Refer to the documentation link above for github repo API calls. Look specifically at documentation
+    around <a href="https://docs.github.com/en/rest/reference/repos#create-a-repository-for-the-authenticated-user" target="_new">"Create a repository for the authenticated user"</a>.
+  </li>
+  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), DATA, and any additional required HEADERS.</li>
+  <li>Remember to include an authentication header (using your token) given in the <code>py-post.py</code> example.</li>
+  <li>Test and iterate on your code, creating and deleting gists easily.</li>
+  <li>Submit a screenshot of your code to verify completion of this lab.</li>
+</ol>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/ds3002/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

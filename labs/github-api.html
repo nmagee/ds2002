@@ -72,7 +72,14 @@ There is no expectation that you MUST use any specific editor.</p>
   <li>Get the ID of an existing Github gist. This should look something like <code>bb222a9c6366411000485682eacce254</code></li>
   <li>Refer to the documentation link above for Github gist API calls. Look specifically at documentation around
     the <a href="https://docs.github.com/en/rest/reference/gists#delete-a-gist" target="_new"><code>DELETE</code></a> method.</li>
-  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), and any additional required HEADERS.</li>
+  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), and any additional required HEADERS. Documentation shows
+    that a second header named <code>'Accept'</code> with a value of <code>'application/vnd.github.v3+json'</code> is required. This
+    should be defined as simple key-value pairs, with a comma separation. So the
+    full line defining "headers" for your script should look like this:
+<pre><code>headers = {'Accept': 'application/vnd.github.v3+json', 'Authorization': f'token {token}'}
+</code></pre>
+
+  </li>
   <li>Remember to include an authentication header (using your token) given in the <code>py-post.py</code> example.</li>
   <li>Test and iterate on your code, creating and deleting gists easily.</li>
   <li>Submit a screenshot of your code to verify completion of this lab.</li>
@@ -91,7 +98,9 @@ There is no expectation that you MUST use any specific editor.</p>
   <li>Refer to the documentation link above for github repo API calls. Look specifically at documentation
     around <a href="https://docs.github.com/en/rest/reference/repos#create-a-repository-for-the-authenticated-user" target="_new">"Create a repository for the authenticated user"</a>.
   </li>
-  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), DATA, and any additional required HEADERS.</li>
+  <li>This documentation will show you the proper ENDPOINT, PARAMETER(S), DATA, and any additional required HEADERS.
+    See the note above on additional headers.
+  </li>
   <li>Remember to include an authentication header (using your token) given in the <code>py-post.py</code> example.</li>
   <li>Test and iterate on your code, creating repositories and manually deleting.</li>
   <li>Submit a screenshot of your code to verify completion of this lab.</li>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DS3002 Data Science Systems - Week 09 - Relational Databases</title>
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <style>
+    h3 { padding-top:4rem; }
+    h3 a { text-decoration:none; color: black; }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/ds3002/" style="color:black;text-decoration:none;">DS3002 Data Science Systems</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia, Spring 2021</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Week 09 - Relational Databases in Data Science</h2>
+
+Contents:
+<ul>
+  <li><a href="#lecture-1">Watch Lecture - Part I</a></li>
+  <li><a href="#lecture-2">Watch Lecture - Part II</a></li>
+  <li><a href="#exercises">Hands-On Exercises</a></li>
+</ul>
+
+<h3><a name="lecture-1">Lecture 1</a></h3>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/dOiEx38sa6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3><a name="lecture-2">Lecture 2</a></h3>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/UdjHgIqFOD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3><a name="exercises">Exercises</a></h3>
+
+<ol>
+  <li>In your local clone of the course repository, issue this command to retrieve updates: <pre><code>git pull origin main</code></pre></li>
+  <li>Within the course repository, locate the <code>11-datasci-sql</code> folder and the <code>tracking.sql</code> SQL script.</li>
+  <li>Using the RDS instance you created last week, load the SQL file into your database. You should now have a new table named "tracking".</li>
+  <li>Visit <a href="https://www.mockaroo.com/" target="_new">Mockaroo.com</a> and create a new table of mock data. This table should consist
+      of 1000 records with at least 6 columns of data.</li>
+  <li>Create a new table in your RDS instance matching the columns and data types of your mock table data.</li>
+  <li>Your export from Mockaroo should be SQL format, but do not check the "include CREATE TABLE" option.</li>
+  <li>Load your data into the database. Debug and correct errors.</li>
+  <li>Should you want a greater challenge, export the Mockaroo data into CSV or JSON format and import.</li>
+</ol>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/ds3002/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>DS3002 Data Science Systems - Week 12 - NoSQL Databases for Data Science</title>
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/styles.css">
+    <link rel="stylesheet" href="https://nmagee.github.io/ds3002/stylesheets/github-light.css">
+    <link rel="Shortcut Icon" href="https://www.rc.virginia.edu/images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width">
+    <style>
+    h3 { padding-top:4rem; }
+    h3 a { text-decoration:none; color: black; }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://nmagee.github.io/ds3002/" style="color:black;text-decoration:none;">DS3002 Data Science Systems</a></h1>
+        <p>Neal Magee, Ph.D.<br />Solution Architect, Research Computing<br />University of Virginia, Spring 2021</p>
+
+        <div style="min-height:2rem;"></div>
+
+        <ul>
+          <li><a href="https://nmagee.github.io/ds3002/">Return to the<strong>Syllabus</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-lectures" target="_new">View lectures<strong>YouTube</strong></a></li>
+          <li><a href="https://l.uvarc.io/ds3002-discord">Discussions on <strong>Discord</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        
+<h2>Week 12 - NoSQL Databases for Data Science</h2>
+
+Contents:
+<ul>
+  <li><a href="#lecture-1">Watch Lecture</a></li>
+  <li><a href="#example">Chalice + MongoDB Example</a></li>
+  <li><a href="#exercise">Hands-On Exercise</a></li>
+</ul>
+
+<h3><a name="lecture-1">Lecture 1</a></h3>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/6IE6nx_x0ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3><a name="example">Chalice + MongoDB Example</a></h3>
+
+<p>Code and setup for the Chalice + MongoDB example at the end of the lecture is available <a href="https://github.com/ds3002/course/tree/main/practice/13-nosql-datasci/mongo-api" target="_new">here</a>.</p>
+
+<h3><a name="exercise">Exercise</a></h3>
+
+<p>Using the MongoDB Atlas database cluster you have already created, complete the following steps in Python.
+If possible, this process should require no human intervention.</p>
+
+<ol>
+  <li>Use the <code>requests</code> library to fetch one of the datasets below (pick one or more).
+  <li>Ingest and transform the data - select some of the columns to retain, and transform into a format compatible with insertion into MongoDB.
+  <li>Programmatically insert all transformed records from the remote dataset into your MongoDB Atlas database.
+</ol>
+
+<p>Please note that if you have loaded the sample databases into your Atlas cluster, you may want to delete them to free up
+storage capacity</p>
+
+<p>Datasets to choose from:</p>
+<ul>
+  <li><a href="https://code.datasciencedojo.com/datasciencedojo/datasets/tree/master/Occupancy%20Detection" target="_new">Occupancy Detection Data</a> - Over 20k rows, 17 columns, of temperature, humidity, light, and CO2 detection. Parse this data, inserting at least 5 columns from 1000 records into your MongoDB collection.
+  <li><a href="https://code.datasciencedojo.com/datasciencedojo/datasets/tree/master/Dow%20Jones%20Index" target="_new">Dow Jones Industrial Average</a> - This dataset contains weekly data for the Dow Jones Industrial Index (750 rows, 16 colums, CSV format). Extract at least 5 columns and insert into your MongoDB collection.
+  <li><a href="https://files.pushshift.io/reddit/" target="_new">Reddit Submissions Dataset</a> - Select a dataset (already in JSON format), decompress it, and selectively insert some of the fields from 1000 records into a MongoDB collection.
+  <li><a href="http://ai.stanford.edu/~amaas/data/sentiment/" target="_new">The Stanford IMDB Movie Review training dataset</a> - Insert 1000 records from this dataset, using the filename as a field value and the review text as another field value.
+  <li><a href="https://code.datasciencedojo.com/datasciencedojo/datasets/" target="_new">Select another dataset</a>
+</ul>
+
+<p>You may want to refer to the <a href="https://www.kite.com/python/docs/pymongo.collection.Collection.insert_one" target="_new">insertOne</a> or the <a href="https://www.kite.com/python/docs/pymongo.collection.Collection.insert_many">insert_many</a> PyMongo methods to complete this task.
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nmagee">nmagee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="https://nmagee.github.io/ds3002/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

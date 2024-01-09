@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="UVA Data Science <nem2p@virginia.edu>"
 LABEL org.opencontainers.image.source=https://github.com/nmagee/ds3002
 
